@@ -13,6 +13,7 @@
     --container-color: #FAFAFA;
     --container-color-alt: #F0EFEF;
     --body-color: #FCFCFC;
+    --link-color: #103667;
     /*========== Font and typography ==========*/
     --body-font: 'Poppins', sans-serif;
     --h1-font-size: 1.5rem;
@@ -49,17 +50,46 @@ html {
 
 /*========== Variables Dark theme ==========*/
 
+body.dark-theme {
+    --title-color: #F2F2F2;
+    --text-color: #BFBFBF;
+    --text-color-light: #707070;
+    --container-color: #212121;
+    --container-color-alt: #181616;
+    --body-color: #2B2B2B;
+    --link-color: rgb(152, 208, 254)
+}
+
 
 /*========== Button Dark/Light ==========*/
 
+.change-theme {
+    position: absolute;
+    right: 0;
+    top: 1.2rem;
+    display: flex;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 
-/*========== Font size variables to scale cv ==========*/
+.change-theme:hover {
+    color: var(--title-color);
+}
 
+.download {
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    display: flex;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 
-/*========== Generate PDF button ==========*/
-
-
-/*========== Classes modified to reduce size and print on A4 sheet ==========*/
+.download:hover {
+    color: var(--title-color);
+}
 
 body {
     margin: 0, 0 var(--header-height) 0;
@@ -236,15 +266,13 @@ img {
 }
 
 .home_img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     justify-self: center;
     margin-bottom: var(--mb-1);
-}
-
-.home_title {
-    font-size: var(--h1-font-size);
+    padding: 3px;
+    border: 2px solid var(--text-color);
 }
 
 .home_profession {
@@ -264,23 +292,7 @@ img {
 
 .home_icon {
     font-size: 1.5rem;
-    margin-right: .25rem;
-}
-
-.home_button-movil {
-    display: inline-block;
-    border: 2px solid var(--text-color);
-    color: var(--title-color);
-    padding: 1rem 2rem;
-    border-radius: .25rem;
-    transition: .3s;
-    font-weight: var(--font-medium);
-    margin-top: var(--mb-3);
-}
-
-.home_button-movil:hover {
-    background-color: var(--text-color);
-    color: var(--container-color);
+    margin-right: .5rem;
 }
 
 
@@ -304,14 +316,14 @@ img {
 
 .social_icon {
     font-size: 1.5rem;
-    margin-right: .25rem;
+    margin-right: .5rem;
 }
 
 
 /*========== PROFILE ==========*/
 
 .profile_description {
-    text-align: center;
+    /* text-align: center; */
 }
 
 
@@ -355,18 +367,33 @@ img {
 .education_year,
 .experience_description {
     font-size: var(--smaller-font-size);
-    color: var(--text-color-light);
+    /* color: var(--text-color-light); */
+}
+
+.git {
+    text-decoration: underline;
+    color: var(--link-color);
+}
+
+.git_icon {
+    font-size: 1.5rem;
+    margin-right: .5rem;
+    margin-top: .25rem;
 }
 
 
 /*========== SKILLS AND LANGUAGES ==========*/
 
-.skills_content,
+.skills_content {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .language_content {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.skills_content {
+.skills_content,
+.language_content {
     gap: 0;
 }
 
@@ -390,7 +417,7 @@ img {
 /*========== INTERESTS ==========*/
 
 .interests_container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding-bottom: 1.5rem;
 }
 
@@ -406,7 +433,7 @@ img {
 }
 
 .interests_icon {
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     border-radius: 50%;
     padding: 5px;
     font-size: 1.5rem;
@@ -475,10 +502,13 @@ img {
         box-shadow: 0 0 8px rgba(13, 12, 12, .15);
     }
     .resume_left {
-        background-color: rgba(0, 0, 0, .1);
+        background-color: rgb(28, 58, 100, .3);
     }
     .resume_left,
     .resume_right {
         padding: 0 1.5rem;
+    }
+    .home_button-movil {
+        display: none;
     }
 }
